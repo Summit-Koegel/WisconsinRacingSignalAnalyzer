@@ -1,0 +1,49 @@
+import tkinter as tk
+from tkinter import ttk
+
+class MenuScreen:
+    def __init__(self, root, screens):
+        self.root = root
+        self.screens = screens
+        self.selected_screen = None
+
+        self.screen_names = ["E-Car Drive", "C-Car Drive", "Settings"]
+
+        self.menu_frame = tk.Frame(root)
+        self.menu_frame.grid(row=0, column=0, sticky="nsew")
+
+        self.screen_frames = {}
+        for name in self.screen_names:
+            frame = tk.Frame(root)
+            self.screen_frames[name] = frame
+            frame.grid(row=0, column=0, sticky="nsew")
+        
+        for i, name in enumerate(self.screen_names):
+            button = ttk.Button(self.menu_frame, text=name, command=lambda n=name: self.switch_screen(n))
+            button.grid(row=i, padx=10, pady=10, sticky="w")
+
+    def switch_screen(self, screen_name):
+        if self.selected_screen:
+            self.screen_frames[self.selected_screen].tkraise()
+        self.selected_screen = screen_name
+        self.screen_frames[screen_name].tkraise()
+
+class DriveDisplay:
+    def __init__(self, root, name):
+        self.root = root
+        self.name = name
+        self.label = ttk.Label(root, text=name, font=("Arial", 24))
+        self.label.pack(padx=20, pady=20)
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    root.title("Steering Wheel")
+
+    screens = {}
+    screens["E-Car Drive"] = DriveDisplay(root, "E-Car Drive Screen")
+    screens["C-Car Drive"] = DriveDisplay(root, "C-Car Drive Screen")
+    screens["Settings"] = DriveDisplay(root, "Settings Screen")
+
+    menu = MenuScreen(root, screens)
+
+    root.mainloop()

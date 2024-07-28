@@ -1,0 +1,1 @@
+Running Time(above 1000 RPM): 1000.1000000001588 seconds

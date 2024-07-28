@@ -1,0 +1,3 @@
+Average Speed: 0.0
+Max AY (Acceleration Y): -0.02
+Max AX (Acceleration X): 0.2538090502237694

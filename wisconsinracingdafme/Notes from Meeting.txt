@@ -1,0 +1,28 @@
+Surya will add what Sampling Rates correspond to what signal
+Add information about each signal to each title
+As an example: 
+	Veh Speed, mph, 5 ms
+Time Interpolation (not sure if this is already like this)
+	Log at lowest common denominator of the signals (essentially divide time by the fastest sample rate)
+	Every sensor has spaces if it does not sample as fast as the faster sensors
+As an example:
+	Time:  Sensor 1 Value (rpm): Sensor 2 Value(mph):
+	1	5000			6
+	2	5000			-
+	3	4000			-
+	4	5000			7
+	5	5000			-
+	6	5000			-
+
+Surya will also add Sensor Plausible Min and Maxes
+	If the sensor exceeds these values, that means there is something wrong, replace value with error
+
+
+Dropdowns:
+Car
+Team
+Scatter/Line
+Default Time on x
+Add signal comparison feature
+Signal 1
+Signal 2
